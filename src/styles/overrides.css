@@ -79,6 +79,8 @@ html {
 @media (max-width: 720px) {
   .topbar nav.mobile-nav {
     display: flex;
+    visibility: hidden;
+    pointer-events: none;
     position: absolute;
     top: 72px;
     left: 0;
@@ -92,6 +94,8 @@ html {
 
   .topbar nav.mobile-nav.open {
     transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .depletion span {
