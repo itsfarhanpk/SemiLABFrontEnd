@@ -2,6 +2,18 @@ html {
   scroll-padding-top: 88px;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+.theory-grid > article {
+  min-width: 0;
+}
+
+.theory code {
+  max-width: 100%;
+}
+
 .preset:hover {
   color: #14536d;
 }
