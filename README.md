@@ -10,7 +10,7 @@ copy .env.example .env
 npm run dev
 ```
 
-Set `VITE_API_URL` in `.env` to the URL of the separate Flask backend. The local development default is `http://localhost:5000`.
+Set `VITE_API_URL` in `.env` to the URL of the separate Flask backend. The default is the deployed SemiLab backend; use `http://localhost:5000` when running Flask locally.
 
 ## Build
 
