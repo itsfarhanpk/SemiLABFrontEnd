@@ -18,6 +18,11 @@ Set `VITE_API_URL` in `.env` to the URL of the separate Flask backend. The defau
 npm run build
 ```
 
+The production build is the frontend verification command. Request handling
+uses a 250 ms slider debounce, AbortController cancellation, stale-response
+protection, and a retry action after API failures. There is no separate test
+runner configured in this lightweight Vite repository yet.
+
 ## Included
 
 - Responsive light laboratory dashboard
