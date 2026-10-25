@@ -34,7 +34,8 @@ body {
 
 .junction {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto 2px auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(var(--minimum-depletion-width), var(--p-width)) 2px minmax(var(--minimum-depletion-width), var(--n-width)) minmax(0, 1fr);
+  column-gap: 0;
   height: 190px;
   background: #f1f7fb;
   overflow: hidden;
@@ -100,30 +101,24 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 3px;
+  position: relative;
+  padding: 38px 3px 10px;
   background: linear-gradient(90deg, #7652bf, #a289dc, #7652bf);
   color: #fff;
   box-shadow: 0 0 30px #875fe055 inset;
   transition: width .4s ease;
 }
 
-.depletion .region-heading {
+.depletion-label {
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  right: 2px;
   text-align: center;
-}
-
-.depletion .region-heading b,
-.depletion .region-heading small {
   color: #fff;
-}
-
-.depletion .region-heading b {
-  font-size: 8px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-
-.depletion .region-heading small {
-  font: 8px 'DM Mono';
+  font: 700 8px 'DM Mono';
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .particle-field {
@@ -167,7 +162,8 @@ body {
 .depletion .particle-field {
   grid-template-columns: repeat(2, 17px);
   gap: 7px 4px;
-  min-height: 92px;
+  min-height: 0;
+  flex: 1;
 }
 
 .depletion .particle {
@@ -214,6 +210,38 @@ body {
   font: 10px 'DM Mono';
   text-align: center;
   margin-top: 10px;
+}
+
+.width-readout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 16px 4% 0;
+}
+
+.width-readout span {
+  display: grid;
+  gap: 3px;
+  padding: 9px 10px;
+  border: 1px solid #dbe5f0;
+  border-radius: 5px;
+  background: #f7fbfe;
+  text-align: center;
+}
+
+.width-readout b {
+  color: #66809e;
+  font: 10px 'DM Mono';
+}
+
+.width-readout strong {
+  color: #214b6b;
+  font: 500 13px 'DM Mono';
+}
+
+.width-readout small {
+  color: #8193a8;
+  font-size: 9px;
 }
 
 .animation-note {
@@ -264,10 +292,6 @@ body {
     pointer-events: auto;
   }
 
-  .depletion span {
-    font-size: 8px;
-  }
-
   .region {
     padding: 10px;
   }
@@ -298,6 +322,16 @@ body {
     font-size: 8px;
   }
 
+    .width-readout {
+      grid-template-columns: 1fr 1fr;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .width-readout span:last-child {
+      grid-column: 1 / -1;
+    }
+
   .junction {
     height: 230px;
   }
@@ -321,7 +355,7 @@ body {
     height: 17px;
   }
 
-  .depletion .region-heading b {
+  .depletion-label {
     font-size: 7px;
   }
 }
